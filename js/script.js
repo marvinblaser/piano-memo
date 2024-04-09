@@ -1,5 +1,8 @@
 let tiles = document.querySelectorAll(".tile");
 let untouchable = document.querySelector(".untouchable");
+let start = document.querySelector(".start");
+let startButton = document.querySelector(".start-button");
+let blurPage = document.querySelector(".blur");
 
 tiles.forEach(tile =>{
     tile.addEventListener("click", ()=>{
@@ -12,4 +15,9 @@ tiles.forEach(tile =>{
             untouchable.style.zIndex = -1;
         }, "700");
     })
+})
+
+startButton.addEventListener("click", ()=>{
+    start.remove();
+    blurPage.remove();
 })
