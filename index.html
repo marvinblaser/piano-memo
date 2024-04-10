@@ -9,25 +9,42 @@
     <title>Piano Memo</title>
 </head>
 <body>
+    <audio id="do"><source src="stock/sound/do.wav" type="audio/wav"></audio>
+    <audio id="mi"><source src="stock/sound/mi.wav" type="audio/wav"></audio>
+    <audio id="fa"><source src="stock/sound/fa.wav" type="audio/wav"></audio>
+    <audio id="re"><source src="stock/sound/re.wav" type="audio/wav"></audio>
     <div class="start">
         <div class="start-button">Commencer</div>
     </div>
     <div class="blur"></div>
     <div class="piano">
-        <div class="tile">A</div>
-        <div class="tile">B</div>
-        <div class="tile">C</div>
-        <div class="tile">D</div>
+        <div class="tile tile-a">A</div>
+        <div class="tile tile-b">B</div>
+        <div class="tile tile-c">C</div>
+        <div class="tile tile-d">D</div>
     </div>
     <div class="playable">
-        <div class="light light-top"></div>
+        <div class="light light-top off"></div>
         <div class="light light-bottom"></div>
     </div>
     <div class="notes">
-        <div class="note-flex"><img src="stock/img/note1.png" class="note" alt=""></div>
-        <div class="note-flex"><img src="stock/img/note2.png" class="note" alt=""></div>
-        <img src="stock/img/note3.png" class="note" alt="">
-        <img src="stock/img/note4.png" class="note" alt="">
+        <div class="note-flex note-a">
+            <img src="stock/img/note1.png" class="note" alt="">
+            <span class="text big-text">A</span>
+        </div>
+        <div class="note-flex note-b">
+            <img src="stock/img/note2.png" class="note" alt="">
+            <span class="text">B</span>
+        </div>
+        <div class="note-flex note-c">
+            <img src="stock/img/note3.png" class="note" alt="">
+            <span class="text">C</span>
+        </div>
+        <div class="note-flex note-d">
+            <img src="stock/img/note4.png" class="note" alt="">
+            <span class="text">D</span>
+        </div>
+        
     </div>
     <div class="untouchable"></div>
     <script src="js/script.js"></script>
