@@ -13,8 +13,11 @@
     <audio id="mi"><source src="stock/sound/mi.wav" type="audio/wav"></audio>
     <audio id="fa"><source src="stock/sound/fa.wav" type="audio/wav"></audio>
     <audio id="re"><source src="stock/sound/re.wav" type="audio/wav"></audio>
-    <div class="start">
-        <div class="start-button">Commencer</div>
+    <div class="start-page">
+        <div class="start">
+            <div class="start-button">Commencer</div>
+        </div>
+        <div class="blur"></div>
     </div>
     <div class="loose">
         <span class="loose-text">C'est perdu !</span>
@@ -22,12 +25,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38"/></svg>
         </a>
     </div>
-    <div class="blur"></div>
     <div class="piano">
-        <div class="tile tile-a">A</div>
-        <div class="tile tile-b">B</div>
-        <div class="tile tile-c">C</div>
-        <div class="tile tile-d">D</div>
+        <div class="tile tile-a" id="a">A</div>
+        <div class="tile tile-b" id="b">B</div>
+        <div class="tile tile-c" id="c">C</div>
+        <div class="tile tile-d" id="d">D</div>
     </div>
     <div class="playable">
         <div class="light light-top off"></div>
