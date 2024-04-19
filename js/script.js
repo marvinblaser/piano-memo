@@ -34,3 +34,36 @@ document.querySelector(".back").addEventListener("click", ()=>{
 help.addEventListener("click", ()=>{
   document.querySelector(".skip").style.display = "flex";
 })
+
+let numClick = -1;
+let userPattern = [];
+let correctPattern = [];
+let possibleNotes = ["a", "b", "c", "d", "e"];
+let level = 0;
+
+document.querySelectorAll(".tile").forEach(singleTile =>{
+  singleTile.addEventListener("click", function(buttonClicked){
+    numClick++;
+    let note = buttonClicked.target.id;
+    alert(note);
+  })
+})
+
+function nextSequence(){
+  let rand = Math.floor(Math.random() * 4);
+  let note = possibleNotes[rand];
+  correctPattern.push(note);
+  playAudio(note);
+}
+
+function playAudio(color){
+  let relPath = `sounds/${color}.mp3`;
+  let audio = new Audio(relPath);
+  audio.play();
+}
+
+document.querySelector(".start-button").addEventListener("click", function(){
+  if(level <= 0){
+    nextSequence();
+  }
+})
