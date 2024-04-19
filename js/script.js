@@ -1,21 +1,6 @@
-let tileA = document.querySelector(".tile-a");
-let tileB = document.querySelector(".tile-b");
-let tileC = document.querySelector(".tile-c");
-let tileD = document.querySelector(".tile-d");
-let noteA = document.querySelector(".note-a");
-let noteB = document.querySelector(".note-b");
-let noteC = document.querySelector(".note-c");
-let noteD = document.querySelector(".note-d");
-let noteDo = document.querySelector("#do");
-let noteMi = document.querySelector("#mi");
-let noteFa = document.querySelector("#fa");
-let noteRe = document.querySelector("#re");
-let untouchable = document.querySelector(".untouchable");
 let start = document.querySelector(".start");
 let startButton = document.querySelector(".start-button");
 let blurPage = document.querySelector(".blur");
-let lightTop = document.querySelector(".light-top");
-let lightBottom = document.querySelector(".light-bottom");
 let loosePage = document.querySelector(".loose");
 let help = document.querySelector(".help");
 
@@ -45,25 +30,58 @@ document.querySelectorAll(".tile").forEach(singleTile =>{
   singleTile.addEventListener("click", function(buttonClicked){
     numClick++;
     let note = buttonClicked.target.id;
-    alert(note);
+    clickAnimation("#" + note)
+    playAudio(note);
+    checkAnswer(note);
   })
 })
 
+function checkAnswer(note){
+  userPattern.push(note);
+  if(note == correctPattern[numClick]){
+    if(userPattern.length == correctPattern.length){
+      setTimeout(function(){
+        userPattern = [];
+        numClick = -1;
+        nextSequence();
+      }, 1000)
+    }
+  }else{
+    document.querySelector(".loose").style.display = "flex";
+    userPattern = [];
+    correctPattern = [];
+    level = 0;
+    numClick = -1;
+  }
+}
+
 function nextSequence(){
+  level++;
+  document.querySelector(".level-number").innerText = level;
   let rand = Math.floor(Math.random() * 4);
   let note = possibleNotes[rand];
   correctPattern.push(note);
   playAudio(note);
+  clickAnimation("#" + note);
 }
 
-function playAudio(color){
-  let relPath = `sounds/${color}.mp3`;
+function playAudio(note){
+  let relPath = `../stock/sounds/${note}.wav`;
   let audio = new Audio(relPath);
   audio.play();
 }
 
+function clickAnimation(id){
+  document.querySelector(id).style.backgroundColor = "rgba(0, 0, 0, .6)";
+  setTimeout(()=>{
+    document.querySelector(id).style.backgroundColor = "#dbdbdb";
+  }, 500)
+}
+
 document.querySelector(".start-button").addEventListener("click", function(){
   if(level <= 0){
-    nextSequence();
+    setTimeout(()=>{
+      nextSequence();
+    }, 500)
   }
 })
