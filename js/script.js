@@ -4,6 +4,11 @@ let blurPage = document.querySelector(".blur");
 let loosePage = document.querySelector(".loose");
 let help = document.querySelector(".help");
 
+let win = document.querySelector(".win")
+
+
+
+
 startButton.addEventListener("click", ()=>{
   start.remove();
   blurPage.remove();
@@ -63,6 +68,9 @@ function nextSequence(){
   correctPattern.push(note);
   playAudio(note);
   clickAnimation("#" + note);
+  if(level === 2){
+    win.style.display = "flex";
+  }
 }
 
 function playAudio(note){
