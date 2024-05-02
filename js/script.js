@@ -68,7 +68,7 @@ function nextSequence(){
   correctPattern.push(note);
   playAudio(note);
   clickAnimation("#" + note);
-  if(level === 2){
+  if(level === 11){
     win.style.display = "flex";
   }
 }
